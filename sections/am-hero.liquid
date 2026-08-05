@@ -1,0 +1,167 @@
+```liquid
+<section
+  id="AMHero-{{ section.id }}"
+  class="am-hero"
+  data-am-hero
+  data-enter-url="/collections/all"
+  aria-label="Experiencia 3D de AM Shop"
+>
+
+  <!-- =========================================
+       FONDO DE NUBES
+       ========================================= -->
+
+  <video
+    class="am-hero__video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    aria-hidden="true"
+  >
+    <source
+      src="{{ 'clouds-loop.mp4' | asset_url }}"
+      type="video/mp4"
+    >
+  </video>
+
+
+  <!-- Oscurecimiento suave -->
+  <div
+    class="am-hero__overlay"
+    aria-hidden="true">
+  </div>
+
+
+  <!-- =========================================
+       LOGO PEQUEÑO — ESQUINA SUPERIOR IZQUIERDA
+       Este gira automáticamente
+       ========================================= -->
+
+  <div class="am-hero__mini-logo">
+
+    <model-viewer
+      src="{{ 'am-logo.glb' | asset_url }}"
+      camera-controls="false"
+      disable-zoom
+      auto-rotate
+      auto-rotate-delay="0"
+      rotation-per-second="18deg"
+      interaction-prompt="none"
+      environment-image="neutral"
+      exposure="1"
+      shadow-intensity="0"
+      loading="eager"
+      aria-label="Logo AM"
+    >
+    </model-viewer>
+
+  </div>
+
+
+  <!-- =========================================
+       CONTENIDO CENTRAL
+       ========================================= -->
+
+  <main class="am-hero__content">
+
+
+    <!-- LOGO 3D GRANDE -->
+
+    <div
+      class="am-hero__logo-container"
+      data-logo-container
+    >
+
+      <model-viewer
+        class="am-hero__logo"
+        src="{{ 'am-logo.glb' | asset_url }}"
+
+        camera-controls
+        disable-zoom
+
+        interaction-prompt="none"
+
+        environment-image="neutral"
+
+        exposure="1"
+
+        shadow-intensity="0"
+
+        camera-orbit="0deg 75deg 2.5m"
+
+        field-of-view="28deg"
+
+        loading="eager"
+
+        aria-label="Logo AM 3D interactivo"
+      >
+      </model-viewer>
+
+
+      <!-- Indicador para el usuario -->
+
+      <div
+        class="am-hero__drag-hint"
+        data-drag-hint
+      >
+        ARRASTRA PARA GIRAR
+      </div>
+
+    </div>
+
+
+    <!-- =========================================
+         BOTÓN ENTRAR
+         ========================================= -->
+
+    <button
+      class="am-hero__button"
+      type="button"
+      data-enter-store
+    >
+
+      <span>
+        ENTRAR A LA TIENDA
+      </span>
+
+      <span
+        class="am-hero__button-arrow"
+        aria-hidden="true"
+      >
+        ↗
+      </span>
+
+    </button>
+
+
+  </main>
+
+
+  <!-- Texto invisible para accesibilidad -->
+
+  <div
+    class="am-hero__status"
+    aria-live="polite"
+  ></div>
+
+</section>
+
+
+{% schema %}
+
+{
+  "name": "AM 3D Hero",
+
+  "settings": [],
+
+  "presets": [
+    {
+      "name": "AM 3D Hero"
+    }
+  ]
+}
+
+{% endschema %}
+```
