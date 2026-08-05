@@ -1,0 +1,646 @@
+```css
+/* =========================================================
+   AM SHOP — 3D HERO
+   ========================================================= */
+
+:root {
+  --am-white: #ffffff;
+  --am-black: #050505;
+  --am-border: rgba(255, 255, 255, 0.35);
+}
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background: #050505;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HERO PRINCIPAL
+   ========================================================= */
+
+.am-hero {
+  position: relative;
+
+  width: 100%;
+  height: 100svh;
+  min-height: 600px;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  background: #87a9bd;
+
+  color: var(--am-white);
+}
+
+
+/* =========================================================
+   VÍDEO DE NUBES
+   ========================================================= */
+
+.am-hero__video {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  z-index: -3;
+
+  pointer-events: none;
+
+  transform: scale(1.02);
+
+  filter:
+    saturate(0.95)
+    contrast(1.03);
+}
+
+
+/* =========================================================
+   CAPA OSCURA
+   ========================================================= */
+
+.am-hero__overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -2;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(255,255,255,0.12),
+      transparent 40%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0.05),
+      rgba(0,0,0,0.20)
+    );
+}
+
+
+/* =========================================================
+   LOGO PEQUEÑO — ARRIBA IZQUIERDA
+   ========================================================= */
+
+.am-hero__mini-logo {
+
+  position: absolute;
+
+  z-index: 10;
+
+  top: 25px;
+  left: 25px;
+
+  width: 105px;
+  height: 105px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+}
+
+
+.am-hero__mini-logo model-viewer {
+
+  width: 100%;
+  height: 100%;
+
+  background: transparent;
+
+  --poster-color: transparent;
+
+  --progress-bar-color: transparent;
+
+  --progress-mask: transparent;
+}
+
+
+/* =========================================================
+   CONTENIDO CENTRAL
+   ========================================================= */
+
+.am-hero__content {
+
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  padding:
+    80px
+    20px
+    40px;
+
+}
+
+
+/* =========================================================
+   CONTENEDOR LOGO 3D
+   ========================================================= */
+
+.am-hero__logo-container {
+
+  position: relative;
+
+  width: min(75vw, 650px);
+
+  height: min(65vh, 650px);
+
+  min-height: 380px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transform-origin: center;
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+}
+
+
+/* =========================================================
+   LOGO AM 3D
+   ========================================================= */
+
+.am-hero__logo {
+
+  width: 100%;
+  height: 100%;
+
+  background: transparent;
+
+  --poster-color: transparent;
+
+  --progress-bar-color: transparent;
+
+  --progress-mask: transparent;
+
+  cursor: grab;
+
+  touch-action: none;
+
+  filter:
+    drop-shadow(
+      0 30px 45px
+      rgba(0,0,0,0.30)
+    );
+}
+
+
+.am-hero__logo:active {
+
+  cursor: grabbing;
+
+}
+
+
+/* =========================================================
+   INDICACIÓN DE ARRASTRAR
+   ========================================================= */
+
+.am-hero__drag-hint {
+
+  position: absolute;
+
+  bottom: 7%;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+
+  white-space: nowrap;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.25em;
+
+  text-shadow:
+    0 2px 12px
+    rgba(0,0,0,0.6);
+
+  opacity: 0.8;
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+
+.am-hero__drag-hint.is-hidden {
+
+  opacity: 0;
+
+  transform:
+    translate(
+      -50%,
+      10px
+    );
+
+}
+
+
+/* =========================================================
+   BOTÓN
+   ========================================================= */
+
+.am-hero__button {
+
+  appearance: none;
+
+  border:
+    1px solid
+    var(--am-border);
+
+  color: white;
+
+  background:
+    rgba(0,0,0,0.25);
+
+  backdrop-filter:
+    blur(14px);
+
+  -webkit-backdrop-filter:
+    blur(14px);
+
+  min-width: 320px;
+
+  padding:
+    17px
+    25px;
+
+  border-radius: 999px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 15px 45px
+    rgba(0,0,0,0.20);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.am-hero__button:hover {
+
+  transform:
+    translateY(-3px)
+    scale(1.025);
+
+  background:
+    rgba(0,0,0,0.40);
+
+  border-color:
+    rgba(255,255,255,0.60);
+
+}
+
+
+/* =========================================================
+   CLICK
+   ========================================================= */
+
+.am-hero__button:active {
+
+  transform:
+    scale(0.97);
+
+}
+
+
+/* =========================================================
+   FLECHA
+   ========================================================= */
+
+.am-hero__button-arrow {
+
+  font-size: 18px;
+
+  line-height: 0;
+
+  transform:
+    translateY(-1px);
+
+}
+
+
+/* =========================================================
+   ANIMACIÓN DE ENTRADA
+   ========================================================= */
+
+.am-hero.is-entering
+.am-hero__video {
+
+  animation:
+    AMCloudZoom
+    1.5s
+    cubic-bezier(
+      0.65,
+      0,
+      0.10,
+      1
+    )
+    forwards;
+
+}
+
+
+.am-hero.is-entering
+.am-hero__logo-container {
+
+  animation:
+    AMLogoZoom
+    1.5s
+    cubic-bezier(
+      0.65,
+      0,
+      0.10,
+      1
+    )
+    forwards;
+
+}
+
+
+.am-hero.is-entering
+.am-hero__button,
+.am-hero.is-entering
+.am-hero__mini-logo,
+.am-hero.is-entering
+.am-hero__drag-hint {
+
+  animation:
+    AMFadeOut
+    0.55s
+    ease
+    forwards;
+
+}
+
+
+/* =========================================================
+   ZOOM NUBES
+   ========================================================= */
+
+@keyframes AMCloudZoom {
+
+  0% {
+
+    transform:
+      scale(1.02);
+
+    filter:
+      saturate(0.95)
+      contrast(1.03);
+
+  }
+
+  100% {
+
+    transform:
+      scale(1.30);
+
+    filter:
+      saturate(1.05)
+      contrast(1.08)
+      blur(1px);
+
+  }
+
+}
+
+
+/* =========================================================
+   ZOOM LOGO
+   ========================================================= */
+
+@keyframes AMLogoZoom {
+
+  0% {
+
+    transform:
+      scale(1);
+
+    opacity: 1;
+
+    filter:
+      drop-shadow(
+        0 30px 45px
+        rgba(0,0,0,0.30)
+      );
+
+  }
+
+  100% {
+
+    transform:
+      scale(3.4);
+
+    opacity: 0;
+
+    filter:
+      blur(5px);
+
+  }
+
+}
+
+
+/* =========================================================
+   DESAPARECER
+   ========================================================= */
+
+@keyframes AMFadeOut {
+
+  to {
+
+    opacity: 0;
+
+    transform:
+      translateY(10px);
+
+  }
+
+}
+
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media (max-width: 749px) {
+
+  .am-hero {
+
+    min-height: 100svh;
+
+  }
+
+
+  .am-hero__mini-logo {
+
+    top: 15px;
+
+    left: 15px;
+
+    width: 75px;
+    height: 75px;
+
+  }
+
+
+  .am-hero__content {
+
+    padding:
+      65px
+      12px
+      25px;
+
+  }
+
+
+  .am-hero__logo-container {
+
+    width: 96vw;
+
+    height: 60svh;
+
+    min-height: 320px;
+
+    max-height: 600px;
+
+  }
+
+
+  .am-hero__logo {
+
+    touch-action: none;
+
+  }
+
+
+  .am-hero__drag-hint {
+
+    bottom: 4%;
+
+  }
+
+
+  .am-hero__button {
+
+    min-width:
+      min(
+        340px,
+        88vw
+      );
+
+    padding:
+      17px
+      18px;
+
+    font-size: 11px;
+
+  }
+
+}
+
+
+/* =========================================================
+   REDUCIR MOVIMIENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .am-hero__video,
+  .am-hero__logo-container,
+  .am-hero__button,
+  .am-hero__mini-logo {
+
+    animation: none !important;
+
+    transition: none !important;
+
+  }
+
+}
+```
